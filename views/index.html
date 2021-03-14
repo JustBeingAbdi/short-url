@@ -1,0 +1,62 @@
+<html>
+    <head>
+                
+    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Karla&amp;family=Montserrat&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <style type="text/css"></style>
+        <style>
+            body {
+                background-color: rgb(1, 2, 2);
+                text-align: center;
+                
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: "Montserrat" !important;
+            }
+            p, div {
+                font-family: "Karla" !important;
+            }
+        </style>
+
+    </head>
+
+<body>
+    <div class="container text-center text-light" style="padding-top: 110px; padding-bottom: 20px; visibility: visible;">
+        <h2>Shorten Url</h2>
+    <form id="shorturl">
+        <input id="url" class="form-control" type="url" placeholder="Enter Url">
+        <button type="submit" class="btn btn-primary">Shorten</button>
+        <p id="showurl"></p> <a id="redirect" href="#"></a>
+    </form>
+</div>
+
+<script>
+document.getElementById("redirect").style.visibility = "hidden";
+function Shorten() {
+    let url = document.getElementById("url").value;
+    let request = new XMLHttpRequest();
+    request.open("POST", `/short?domain=${url}`);
+    request.send();
+
+    setTimeout(function() {
+        document.getElementById("showurl").textContent = `Url Shortend:`;
+        document.getElementById("redirect").href =  "https://"  + window.location.hostname  + "/" + request.response;
+        document.getElementById("redirect").textContent =  "https://"  + window.location.hostname  + "/" + request.response;
+        document.getElementById("redirect").style.visibility = "visible";
+
+    }, 1500);
+}
+let form = document.getElementById("shorturl");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    Shorten();
+})
+</script>
+
+    
+        
+    </body>
+</html>

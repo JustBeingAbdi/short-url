@@ -1,0 +1,25 @@
+{
+  "name": "shorten-url",
+  "version": "1.0.0",
+  "description": "Url Shortender",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustBeingAbdi/shorten-url.git"
+  },
+  "author": "Abdi Hassan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JustBeingAbdi/shorten-url/issues"
+  },
+  "homepage": "https://github.com/JustBeingAbdi/shorten-url#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.0",
+    "path": "^0.12.7",
+    "secure-random-string": "^1.1.3"
+  }
+}
